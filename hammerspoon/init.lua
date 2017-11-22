@@ -98,15 +98,15 @@ hs.hotkey.bind(hyper, "x", function()
   diameter = 50
   delay = 1
 
-	mousepoint = hs.mouse.getAbsolutePosition ()
+  mousepoint = hs.mouse.getAbsolutePosition ()
   circle = hs.drawing.circle(
-	  hs.geometry.rect(
-		  mousepoint.x - (diameter / 2),
-  		mousepoint.y - (diameter / 2),
-			diameter,
-			diameter
-		)
-	)
+    hs.geometry.rect(
+      mousepoint.x - (diameter / 2),
+      mousepoint.y - (diameter / 2),
+      diameter,
+      diameter
+    )
+  )
   :setStrokeColor({["red"]=1,["blue"]=0,["green"]=0,["alpha"]=1})
   :setFill(false)
   :setStrokeWidth(2)
