@@ -20,10 +20,6 @@ hs.hotkey.bind(hyper, "o", function()
   hs.application.launchOrFocus("Microsoft Outlook")
 end)
 
-hs.hotkey.bind(hyper, "v", function()
-  hs.application.launchOrFocus("MacVim")
-end)
-
 hs.hotkey.bind(hyper, "s", function()
   hs.application.launchOrFocus("Slack")
 end)
