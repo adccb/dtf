@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# hammerspoon
+ln -s $PWD/hammerspoon $HOME/.hammerspoon
+
+# zsh
+ln -s $PWD/zsh $HOME/.zsh
+ln -s $PWD/zsh/zshrc $HOME/.zshrc
+
+# vim
+ln -s $PWD/vim $HOME/.vim
+ln -s $PWD/vim/vimrc $HOME/.vimrc

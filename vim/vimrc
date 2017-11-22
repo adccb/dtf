@@ -1,0 +1,37 @@
+syntax on
+set tabstop=2
+set nowrap
+set number
+set guifont=Fira\ Code:h24
+colorscheme dracula
+set autochdir
+
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set autoindent
+
+" rainbow parens!
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" Python, PEP-008
+au BufRead,BufNewFile *.py,*.pyw set expandtab
+au BufRead,BufNewFile *.py,*.pyw set textwidth=139
+au BufRead,BufNewFile *.py,*.pyw set tabstop=4
+au BufRead,BufNewFile *.py,*.pyw set softtabstop=4
+au BufRead,BufNewFile *.py,*.pyw set shiftwidth=4
+au BufRead,BufNewFile *.py,*.pyw set autoindent
+au         BufNewFile *.py,*.pyw set fileformat=unix
+au BufRead,BufNewFile *.py,*.pyw let b:comment_leader = '#'
+
+" JS
+au BufRead,BufNewFile *.js set expandtab
+au BufRead,BufNewFile *.js set tabstop=2
+au BufRead,BufNewFile *.js set softtabstop=2
+au BufRead,BufNewFile *.js set shiftwidth=2
+au BufRead,BufNewFile *.js set autoindent
+au         BufNewFile *.js set fileformat=unix
+au BufRead,BufNewFile *.js let b:comment_leader = '//'
