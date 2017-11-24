@@ -11,6 +11,11 @@ set softtabstop=2
 set shiftwidth=2
 set autoindent
 
+noremap ; l
+noremap l k
+noremap k j
+noremap j h
+
 " rainbow parens!
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
