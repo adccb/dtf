@@ -10,7 +10,8 @@ alias c='clear'
 alias celar='clear'
 
 alias vnv='source ./.venv/bin/activate'
-alias g='git status'
+alias gs='git status'
+alias ga='git add .'
 alias gp='git push'
 
 auto-ls () {
