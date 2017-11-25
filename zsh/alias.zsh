@@ -16,7 +16,7 @@ alias gp='git push'
 auto-ls () {
   if [[ $#BUFFER -eq 0 ]]; then
     zle && echo ""
-    ls -a
+    ls
     echo ""
 
     zle && zle redisplay
