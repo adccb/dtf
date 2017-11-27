@@ -16,4 +16,5 @@ source $ZSH/oh-my-zsh.sh
 [ -s "$ZSH_DIR/work_creds.zsh" ] && \. "$ZSH_DIR/work_creds.zsh"
 [ -s "$ZSH_DIR/path.zsh" ] && \. "$ZSH_DIR/path.zsh"
 [ -s "$ZSH_DIR/rvm.zsh" ] && \. "$ZSH_DIR/rvm.zsh"
+[ -s "$ZSH_DIR/auto.zsh" ] && \. "$ZSH_DIR/auto.zsh"
 
