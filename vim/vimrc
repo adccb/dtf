@@ -2,7 +2,6 @@ syntax on
 set tabstop=2
 set nowrap
 set number
-set guifont=Fira\ Code:h24
 colorscheme dracula
 set autochdir
 
@@ -16,12 +15,6 @@ noremap ; l
 noremap l k
 noremap k j
 noremap j h
-
-" alias wasd for hjkl
-nnoremap d l
-nnoremap w k
-nnoremap s j
-nnoremap a h
 
 " yell at you if you use arrow keys in normal mode
 nnoremap <Up> :echo "Press l."<CR>
