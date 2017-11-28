@@ -6,7 +6,7 @@ rm $HOME/.zsh
 rm $HOME/.zshrc
 rm $HOME/.vim
 rm $HOME/.vimrc
-rm $HOME/.vimrc
+rm $HOME/.gvimrc
 
 # hammerspoon
 ln -s $PWD/hammerspoon $HOME/.hammerspoon
