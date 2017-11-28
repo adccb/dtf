@@ -3,6 +3,7 @@ set tabstop=2
 set nowrap
 set number
 colorscheme dracula
+let g:airline_theme='dracula'
 set autochdir
 
 set tabstop=2
