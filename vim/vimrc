@@ -46,3 +46,6 @@ au BufRead,BufNewFile *.js set shiftwidth=2
 au BufRead,BufNewFile *.js set autoindent
 au         BufNewFile *.js set fileformat=unix
 au BufRead,BufNewFile *.js let b:comment_leader = '//'
+
+" markdown
+au BufRead,BufNewFile *.md,*.markdown,*.txt set wrap linebreak nolist

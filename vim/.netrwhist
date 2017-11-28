@@ -1,11 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Users/crossan'
-let g:netrw_dirhist_2='/Users/crossan/programming'
-let g:netrw_dirhist_3='/Users/crossan/.zsh'
-let g:netrw_dirhist_4='/Users/crossan/Zoomi/miic-backend/course_manager'
-let g:netrw_dirhist_5='/Users/crossan/.hammerspoon'
-let g:netrw_dirhist_6='/Users/crossan/Zoomi/bluefin'
-let g:netrw_dirhist_7='/Users/crossan/Zoomi/bluefin/bluefin'
-let g:netrw_dirhist_8='/Users/crossan/.hammerspoon'
-let g:netrw_dirhist_9='/Users/crossan/.dtf/zsh'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/crossan/Zoomi/manta/manta/queriers'
+let g:netrw_dirhist_2='/Users/crossan/Zoomi/manta/manta'
+let g:netrw_dirhist_3='/Users/crossan/Zoomi/manta/manta/queriers'

@@ -8,6 +8,10 @@ hs.hotkey.bind(hyper, "d", function()
   hs.application.launchOrFocus("iTerm")
 end)
 
+hs.hotkey.bind(hyper, "v", function()
+  hs.application.launchOrFocus("MacVim")
+end)
+
 hs.hotkey.bind(hyper, "c", function()
   hs.application.launchOrFocus("Google Chrome")
 end)
@@ -80,7 +84,7 @@ end)
 
 -- FREEDOM FROM ~ --
 hs.hotkey.bind(hyper, "o", function()
-  hs.eventtap.keyStrokes('~')
+  hs.eventtap.keyStrokes('~/')
 end)
 
 -- show me the date --
