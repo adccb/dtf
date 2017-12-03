@@ -25,10 +25,15 @@ noremap w k
 noremap s j
 noremap a h
 
+noremap j h
+noremap k j
+noremap l k
+noremap ; l
+
 " clear collisions from wasd-ing
 nnoremap f i
-noremap k d
-noremap kk dd
+noremap r d
+noremap rr dd
 
 " default :w
 noremap <Leader>w :w<CR>
