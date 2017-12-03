@@ -1,27 +1,44 @@
-syntax on
-set tabstop=2
-set nowrap
+"rformatting stuff
 set number
-colorscheme dracula
-let g:airline_theme='dracula'
-set autochdir
-
+set nowrap
+set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set autoindent
+set autochdir
+au BufNewFile *.* set fileformat=unix
+set clipboard=unnamed
 
-" move hjkl to jkl;
-noremap ; l
-noremap l k
-noremap k j
-noremap j h
+" colors
+syntax on
+colorscheme dracula
+let g:airline_theme='dracula'
 
-" yell at you if you use arrow keys in normal mode
-nnoremap <Up> :echo "Press l."<CR>
-nnoremap <Down> :echo "Press k."<CR>
-nnoremap <Left> :echo "Press j."<CR>
-nnoremap <Right> :echo "Press ;."<CR>
+" remappings
+let mapleader = "\<Space>"
+noremap e w
+noremap q b
+
+noremap d l
+noremap w k
+noremap s j
+noremap a h
+
+" clear collisions from wasd-ing
+nnoremap f i
+noremap k d
+noremap kk dd
+
+" default :w
+noremap <Leader>w :w<CR>
+noremap <Leader>q :wq<CR>
+
+"yell at you if you use arrow keys in normal mode
+nnoremap <Up> :echo "Press w."<CR>
+nnoremap <Down> :echo "Press s."<CR>
+nnoremap <Left> :echo "Press a."<CR>
+nnoremap <Right> :echo "Press d."<CR>
 
 " rainbow parens!
 au VimEnter * RainbowParenthesesToggle
@@ -29,24 +46,10 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" Python, PEP-008
-au BufRead,BufNewFile *.py,*.pyw set expandtab
-au BufRead,BufNewFile *.py,*.pyw set textwidth=139
+" python formatting
 au BufRead,BufNewFile *.py,*.pyw set tabstop=4
 au BufRead,BufNewFile *.py,*.pyw set softtabstop=4
 au BufRead,BufNewFile *.py,*.pyw set shiftwidth=4
-au BufRead,BufNewFile *.py,*.pyw set autoindent
-au         BufNewFile *.py,*.pyw set fileformat=unix
-au BufRead,BufNewFile *.py,*.pyw let b:comment_leader = '#'
-
-" JS
-au BufRead,BufNewFile *.js set expandtab
-au BufRead,BufNewFile *.js set tabstop=2
-au BufRead,BufNewFile *.js set softtabstop=2
-au BufRead,BufNewFile *.js set shiftwidth=2
-au BufRead,BufNewFile *.js set autoindent
-au         BufNewFile *.js set fileformat=unix
-au BufRead,BufNewFile *.js let b:comment_leader = '//'
 
 " markdown
 au BufRead,BufNewFile *.md,*.markdown,*.txt set wrap linebreak nolist
