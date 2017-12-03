@@ -115,15 +115,5 @@ hs.hotkey.bind(hyper, "x", function()
   hs.timer.doAfter(delay, function() circle:delete() end)
 end)
 
--- remind yourself to drink water --
-hydrateDelay = 5 * 60
-timer = hs.timer.doEvery(hydrateDelay, function()
-	hs.notify.new({ title="Reminder", informativeText="Drink water." }):send()
-end)
-
-hs.hotkey.bind(hyper, "i", function()
-  if timer:running() then timer:stop() else timer:start() end
-end)
-
 -- notifications --
 hs.notify.new({ title="Hammerspoon", informativeText="Config reloaded." }):send()
