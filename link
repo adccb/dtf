@@ -7,6 +7,7 @@
 [[ -a $HOME/.vim ]] && rm $HOME/.vim
 [[ -a $HOME/.vimrc ]] && rm $HOME/.vimrc
 [[ -a $HOME/.gvimrc ]] && rm $HOME/.gvimrc
+[[ -a $HOME/.gitignore_global  ]] && rm $HOME/.gitignore_global
 
 # hammerspoon
 ln -s $PWD/hammerspoon $HOME/.hammerspoon
@@ -19,4 +20,7 @@ ln -s $PWD/zsh/zshrc $HOME/.zshrc
 ln -s $PWD/vim $HOME/.vim
 ln -s $PWD/vim/vimrc $HOME/.vimrc
 ln -s $PWD/vim/gvimrc $HOME/.gvimrc
+
+# git
+ln -s $PWD/git/gitignore_global $HOME/.gitignore_global
 

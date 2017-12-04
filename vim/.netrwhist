@@ -1,10 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Users/crossan/programming/blog/blog/blog_client/templates'
-let g:netrw_dirhist_2='/Users/crossan/programming/blog/blog/blog_client/templates/blog'
-let g:netrw_dirhist_3='/Users/crossan/programming/blog/blog/blog_client/templates'
-let g:netrw_dirhist_4='/Users/crossan/programming/blog/blog/blog_client/templates/blog'
-let g:netrw_dirhist_5='/Users/crossan/programming/blog/blog/blog_client/templates'
-let g:netrw_dirhist_6='/Users/crossan/programming/blog/blog/blog_client'
-let g:netrw_dirhist_7='/Users/crossan/programming/blog/blog/blog_client/static'
-let g:netrw_dirhist_8='/Users/crossan/programming/blog/blog/blog_client/static/blog'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/crossan/Zoomi/bluefin'
+let g:netrw_dirhist_2='/Users/crossan/Zoomi/bluefin/bluefin'
+let g:netrw_dirhist_3='/Users/crossan/Zoomi/bluefin/bluefin/validators'
+let g:netrw_dirhist_4='/Users/crossan/Zoomi/bluefin/bluefin/validators/input'
