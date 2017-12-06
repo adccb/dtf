@@ -1,6 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/Users/crossan/Zoomi/bluefin'
 let g:netrw_dirhist_2='/Users/crossan/Zoomi/bluefin/bluefin'
 let g:netrw_dirhist_3='/Users/crossan/Zoomi/bluefin/bluefin/validators'
 let g:netrw_dirhist_4='/Users/crossan/Zoomi/bluefin/bluefin/validators/input'
+let g:netrw_dirhist_5='/Users/crossan/Zoomi/manta/manta/reports'
+let g:netrw_dirhist_6='/Users/crossan/Zoomi/manta/manta'
+let g:netrw_dirhist_7='/Users/crossan/Zoomi/manta/manta/queriers'

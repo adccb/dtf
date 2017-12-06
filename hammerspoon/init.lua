@@ -32,6 +32,19 @@ hs.hotkey.bind(hyper, "f", function()
   hs.application.launchOrFocus("Spotify")
 end)
 
+-- spotify controls --
+hs.hotkey.bind(hyper, '=', function()
+  if hs.spotify.isRunning() then
+    hs.spotify.next()
+  end
+end)
+
+hs.hotkey.bind(hyper, '-', function()
+  if hs.spotify.isRunning() then
+    hs.spotify.previous()
+  end
+end)
+
 -- switching spaces --
 hs.hotkey.bind({ "ctrl" }, "right", function()
   hs.eventtap.keyStroke(nil, "f14")

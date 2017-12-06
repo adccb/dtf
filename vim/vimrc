@@ -39,6 +39,7 @@ noremap rr dd
 noremap <Leader>w :w<CR>
 noremap <Leader>q :wq<CR>
 
+noremap jj :q<CR>
 "yell at you if you use arrow keys in normal mode
 nnoremap <Up> :echo "Press w."<CR>
 nnoremap <Down> :echo "Press s."<CR>
