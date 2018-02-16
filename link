@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 
 # remove everything
-[[ -a $HOME/.hammerspoon ]] && rm $HOME/.hammerspoon
-[[ -a $HOME/.zsh ]] && rm $HOME/.zsh
-[[ -a $HOME/.zshrc ]] && rm $HOME/.zshrc
-[[ -a $HOME/.vim ]] && rm $HOME/.vim
-[[ -a $HOME/.vimrc ]] && rm $HOME/.vimrc
-[[ -a $HOME/.gvimrc ]] && rm $HOME/.gvimrc
-[[ -a $HOME/.gitignore_global  ]] && rm $HOME/.gitignore_global
+[[ -L $HOME/.zsh ]] && rm -r $HOME/.zsh
+[[ -L $HOME/.zshrc ]] && rm $HOME/.zshrc
+[[ -L $HOME/.vim ]] && rm -r $HOME/.vim
+[[ -L $HOME/.vimrc ]] && rm $HOME/.vimrc
+[[ -L $HOME/.gitignore_global  ]] && rm $HOME/.gitignore_global
 
 # hammerspoon
 ln -s $PWD/hammerspoon $HOME/.hammerspoon
@@ -19,7 +17,6 @@ ln -s $PWD/zsh/zshrc $HOME/.zshrc
 # vim
 ln -s $PWD/vim $HOME/.vim
 ln -s $PWD/vim/vimrc $HOME/.vimrc
-ln -s $PWD/vim/gvimrc $HOME/.gvimrc
 
 # git
 ln -s $PWD/git/gitignore_global $HOME/.gitignore_global

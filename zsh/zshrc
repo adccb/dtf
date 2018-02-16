@@ -7,9 +7,6 @@ source $ZSH/themes/$ZSH_THEME.zsh-theme
 
 SPACESHIP_BATTERY_SHOW=false
 
-# work creds
-source $ZSH_DIR/local.env
-
 source $ZSH/oh-my-zsh.sh
 [ -s "$ZSH_DIR/alias.zsh" ] && \. "$ZSH_DIR/alias.zsh"
 [ -s "$ZSH_DIR/nvm.zsh" ] && \. "$ZSH_DIR/nvm.zsh"
