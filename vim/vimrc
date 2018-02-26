@@ -1,4 +1,4 @@
-"formatting stuff
+" formatting stuff
 set number
 set nowrap
 set expandtab
@@ -7,16 +7,14 @@ set softtabstop=2
 set shiftwidth=2
 set autoindent
 set autochdir
-au BufNewFile *.* set fileformat=unix
 set clipboard=unnamed
 set backspace=2
-set guioptions=
-set guifont=Fira\ Code:h12
 
 " colors
 syntax on
-colorscheme dracula
-let g:airline_theme='bubblegum'
+colorscheme molokai
+set cursorline
+highlight clear LineNr
 
 " remappings
 let mapleader = "\<Space>"
@@ -24,8 +22,8 @@ noremap e w
 noremap q b
 
 noremap d l
-noremap w k
-noremap s j
+noremap w gk
+noremap s gj
 noremap a h
 
 noremap j h
@@ -34,7 +32,6 @@ noremap l k
 noremap ; l
 
 " clear collisions from wasd-ing
-nnoremap f i
 noremap r d
 noremap rr dd
 
@@ -42,12 +39,14 @@ noremap rr dd
 noremap <Leader>w :w<CR>
 noremap <Leader>q :wq<CR>
 
-noremap jj :q<CR>
 "yell at you if you use arrow keys in normal mode
 nnoremap <Up> :echo "Press w."<CR>
 nnoremap <Down> :echo "Press s."<CR>
 nnoremap <Left> :echo "Press a."<CR>
 nnoremap <Right> :echo "Press d."<CR>
+
+" limelight
+au VimEnter * Limelight 0.6
 
 " rainbow parens!
 au VimEnter * RainbowParenthesesToggle
@@ -62,3 +61,4 @@ au BufRead,BufNewFile *.py,*.pyw set shiftwidth=4
 
 " markdown
 au BufRead,BufNewFile *.md,*.markdown,*.txt set wrap linebreak nolist
+
