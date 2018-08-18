@@ -14,11 +14,13 @@ function remapKey(pressed, target)
 end
 
 -- applications --
+bindKeypressToApplication("f", "Discord")
 bindKeypressToApplication("c", "Google Chrome")
 bindKeypressToApplication("d", "iTerm")
-bindKeypressToApplication("f", "Spotify")
+bindKeypressToApplication("r", "Spotify")
 bindKeypressToApplication("o", "Spark")
 bindKeypressToApplication("s", "Slack")
+bindKeypressToApplication("v", "Sublime Text")
 
 -- key remappings --
 hs.hotkey.bind(hyper, ".", hs.reload)
