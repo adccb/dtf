@@ -16,7 +16,7 @@ end
 -- applications --
 bindKeypressToApplication("f", "Discord")
 bindKeypressToApplication("c", "Google Chrome")
-bindKeypressToApplication("d", "iTerm")
+bindKeypressToApplication("d", "Hyper")
 bindKeypressToApplication("r", "Spotify")
 bindKeypressToApplication("o", "Spark")
 bindKeypressToApplication("s", "Slack")
