@@ -1,9 +1,9 @@
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_DIR=$HOME/.zsh
 export plugins=(wd)
-export ZSH_THEME='spaceship'
-
-export NVM_DIR=$(realpath $HOME/.nvm)
+export ZSH_THEME='agnoster'
 source $ZSH/oh-my-zsh.sh
 
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
@@ -21,9 +21,5 @@ alias gs='git status'
 alias ga='git add .'
 alias gp='git push'
 
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-
+export PATH="/usr/local/opt/node@8/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"

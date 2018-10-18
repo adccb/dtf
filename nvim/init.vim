@@ -51,6 +51,8 @@ noremap k j
 noremap l k
 noremap ; l
 
+noremap = <C-W>=<CR>
+
 nnoremap <Up> <C-W><C-K>
 nnoremap <Left> <C-W><C-H>
 nnoremap <Down> <C-W><C-J>
