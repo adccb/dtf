@@ -23,3 +23,8 @@ alias gp='git push'
 
 export PATH="/usr/local/opt/node@8/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completionsssww
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"

@@ -17,14 +17,15 @@ syntax on
 set cursorline
 highlight clear LineNr
 set foldmethod=syntax
-"colorscheme 1989
-hi Folded ctermbg=none ctermfg=darkgrey cterm=italic
-hi CursorLine cterm=underline
-hi MatchParen ctermbg=none cterm=bold
-hi ColorColumn ctermbg=none ctermfg=240
-hi htmlArg cterm=italic
-hi Comment cterm=italic
-hi Type cterm=italic
+colorscheme 1989
+hi Folded guibg=none ctermbg=none guifg=darkgrey ctermfg=darkgrey gui=italic cterm=italic
+hi CursorLine gui=underline cterm=underline
+hi MatchParen guibg=none ctermbg=none gui=bold cterm=bold
+hi ColorColumn guibg=none ctermbg=none guifg=240 ctermfg=240
+hi htmlArg gui=italic cterm=italic
+hi Comment gui=italic cterm=italic
+hi Type gui=italic cterm=italic
+hi TabLineFill guibg=darkgrey ctermfg=darkgrey guifg=lightgrey ctermbg=lightgrey
 
 " vim-plug
 call plug#begin('~/.vim/plugged')
@@ -34,6 +35,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'raimondi/delimitmate'
 Plug 'moll/vim-node'
+Plug 'flowtype/vim-flow'
+Plug 'ElmCast/elm-vim'
 call plug#end()
 
 " remappings
@@ -60,12 +63,19 @@ nnoremap <Right> <C-W><C-L>
 
 noremap \ :noh<CR>
 
+tnoremap <Esc> <C-\><C-n>
+
 " plugins!
 autocmd vimenter * NERDTree
 autocmd FileType nerdtree nnoremap <buffer> s j
 let g:NERDTreeMapOpenSplit = 'q'
 let g:NERDTreeMapOpenVSplit = 'e'
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeIgnore = ['pycache']
+let g:NERDTreeMinimalUI = 1
+
+" uncomment this line to quit when the only remaining 
+" window is the nerdtree pane.
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " clear collisions from wasd-ing
 noremap r d
@@ -74,6 +84,10 @@ noremap rr dd
 " save and quit commands
 noremap <Leader>w :w<CR>
 noremap <Leader>q :q<CR>
+noremap <Leader>e :NERDTreeToggle<CR>
+
+" flow
+let g:javascript_plugin_flow = 1
 
 " markdown
 au BufRead,BufNewFile *.md,*.markdown,*.txt set wrap linebreak nolist
