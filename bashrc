@@ -25,3 +25,5 @@ export PS1="
 \e[1;32m\W\e[0;37m (\e[1;31m\$(git_branch)\e[0;37m) \e[1;33myou are more gold than clay.\e[1;0;37m
 \e[1;34mλ \e[0;37m"
 
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

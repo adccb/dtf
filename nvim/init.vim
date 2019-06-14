@@ -17,7 +17,7 @@ syntax on
 set cursorline
 highlight clear LineNr
 set foldmethod=syntax
-colorscheme 1989
+"colorscheme 1989
 hi Folded guibg=none ctermbg=none guifg=darkgrey ctermfg=darkgrey gui=italic cterm=italic
 hi CursorLine gui=underline cterm=underline
 hi MatchParen guibg=none ctermbg=none gui=bold cterm=bold
@@ -37,6 +37,7 @@ Plug 'raimondi/delimitmate'
 Plug 'moll/vim-node'
 Plug 'flowtype/vim-flow'
 Plug 'ElmCast/elm-vim'
+Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 " remappings
@@ -62,6 +63,8 @@ nnoremap <Down> <C-W><C-J>
 nnoremap <Right> <C-W><C-L>
 
 noremap \ :noh<CR>
+noremap - :e<CR>
+noremap -- :e!<CR>
 
 tnoremap <Esc> <C-\><C-n>
 
