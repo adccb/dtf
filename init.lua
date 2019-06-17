@@ -25,22 +25,18 @@ function remapKey(pressed, target, mods)
 end
 
 function setupWorkLayout()
-  hs.layout.apply({
-    { "Google Chrome", nil, nil, bottomRight, nil, nil },
-    { "Slack", nil, nil, topLeft, nil, nil },
-    { "Firefox", nil, nil, bottomLeft, nil, nil },
-    { "Spotify", nil, nil, bottomLeft, nil, nil },
-  })
+  hs.application.find("Google Chrome"):mainWindow():moveToUnit'[50,50,100,100]'
+  hs.application.find("Slack"):mainWindow():moveToUnit'[0,0,50,50]'
+  hs.application.find("Messages"):mainWindow():moveToUnit'[50,25,75,50]'
+  hs.application.find("Spotify"):mainWindow():moveToUnit'[0,100,50,50]'
 end
 
 -- applications --
-bindKeypressToApplication("f", "Firefox")
 bindKeypressToApplication("c", "Google Chrome")
 bindKeypressToApplication("d", "iTerm")
 bindKeypressToApplication("r", "Spotify")
-bindKeypressToApplication("o", "Signal")
 bindKeypressToApplication("s", "Slack")
-bindKeypressToApplication("v", "Hyper")
+bindKeypressToApplication("m", "Messages")
 
 -- layout details --
 hs.hotkey.bind(hyper, "k", setupWorkLayout)
