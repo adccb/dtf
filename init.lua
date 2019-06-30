@@ -1,11 +1,5 @@
-spaces = require("hs._asm.undocumented.spaces") 
-
 local hyper = { "shift", "alt", "ctrl", "cmd" }
 local remapModifier =  { "alt", "ctrl", "cmd" }
-local topLeft = function() return '[0,0,50,50]' end
-local topRight = function() return '[50,0,100,50]' end
-local bottomLeft = function() return '[0,50,50,100]' end
-local bottomRight = function() return '[50,50,100,100]' end
 
 -- utility functions --
 function bindKeypressToApplication(key, appName, layer)
@@ -37,6 +31,8 @@ bindKeypressToApplication("d", "iTerm")
 bindKeypressToApplication("r", "Spotify")
 bindKeypressToApplication("s", "Slack")
 bindKeypressToApplication("m", "Messages")
+bindKeypressToApplication("t", "Todoist")
+bindKeypressToApplication("e", "Spark")
 
 -- layout details --
 hs.hotkey.bind(hyper, "k", setupWorkLayout)
