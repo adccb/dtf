@@ -5,13 +5,14 @@ fu = ENV["env"] == "go" ? FileUtils : FileUtils::DryRun
 dir_locations = [
   "/Users/acrossan/.hammerspoon/",
   "/Users/acrossan/.config/",
-  "/Users/acrossan/.config/karabiner"
+  "/Users/acrossan/.config/karabiner/",
+  "/Users/acrossan/.config/nvim/",
 ]
 
 symlink_locations = {
   "/Users/acrossan/.dtf/zshrc" => "/Users/acrossan/.zshrc",
   "/Users/acrossan/.dtf/init.lua" => "/Users/acrossan/.hammerspoon/init.lua",
-  "/Users/acrossan/.dtf/nvim" => "/Users/acrossan/.config/nvim",
+  "/Users/acrossan/.dtf/init.vim" => "/Users/acrossan/.config/nvim/init.vim",
   "/Users/acrossan/.dtf/gitignore_global" => "/Users/acrossan/.gitignore_global",
   "/Users/acrossan/.dtf/karabiner.json" => "/Users/acrossan/.config/karabiner/karabiner.json",
 }
@@ -24,12 +25,12 @@ if ENV["env"] != "go"
 end
 
 puts "creating directories...\n\n"
-dir_locations.each do |fname|
-  if File.exist? fname
-    puts "#{remove_hostname fname} exists, skipping..."
+dir_locations.each do |dirname|
+  if Dir.exist? dirname
+    puts "#{remove_hostname dirname} exists, skipping..."
   else
-    puts "creating #{remove_hostname fname}..."
-    fu.mkdir_p fname
+    puts "creating #{remove_hostname dirname}..."
+    fu.mkdir_p dirname
   end
 end
 
