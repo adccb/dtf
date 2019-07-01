@@ -12,4 +12,5 @@ fu.ln_sf '/Users/acrossan/.dtf/zshrc', '/Users/acrossan/.zshrc'
 fu.ln_sf '/Users/acrossan/.dtf/init.lua', '/Users/acrossan/.hammerspoon/init.lua'
 fu.ln_sf '/Users/acrossan/.dtf/nvim', '/Users/acrossan/.config/nvim'
 fu.ln_sf '/Users/acrossan/.dtf/gitignore_global', '/Users/acrossan/.gitignore_global'
+fu.ln_sf '/Users/acrossan/.dtf/karabiner.json', '/Users/acrossan/.config/karabiner/karabiner.json'
 

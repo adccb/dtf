@@ -19,10 +19,10 @@ function remapKey(pressed, target, mods)
 end
 
 function setupWorkLayout()
+  hs.application.enableSpotlightForNameSearches(true)
   hs.application.find("Google Chrome"):mainWindow():moveToUnit'[50,50,100,100]'
   hs.application.find("Slack"):mainWindow():moveToUnit'[0,0,50,50]'
-  hs.application.find("Messages"):mainWindow():moveToUnit'[50,25,75,50]'
-  hs.application.find("Spotify"):mainWindow():moveToUnit'[0,100,50,50]'
+  hs.application.find("Todoist"):mainWindow():moveToUnit'[0,100,50,50]'
 end
 
 -- applications --
