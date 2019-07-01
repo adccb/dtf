@@ -1,5 +1,5 @@
 *.swp
 *.swo
 *~
-zsh/local.env
-zsh/work_creds.zsh
+vim/plugged
+
