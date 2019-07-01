@@ -28,7 +28,7 @@ hi Type gui=italic cterm=italic
 hi TabLineFill guibg=darkgrey ctermfg=darkgrey guifg=lightgrey ctermbg=lightgrey
 
 " vim-plug
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'pangloss/vim-javascript'
