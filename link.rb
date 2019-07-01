@@ -5,6 +5,7 @@ fu = ENV['env'] ? FileUtils : FileUtils::DryRun
 # create all necessary dirs
 fu.mkdir_p '/Users/acrossan/.hammerspoon/'
 fu.mkdir_p '/Users/acrossan/.config/'
+fu.mkdir_p '/Users/acrossan/.vim/'
 
 # do all the goddamn symlinks
 fu.ln_sf '/Users/acrossan/.dtf/zshrc', '/Users/acrossan/.zshrc'
