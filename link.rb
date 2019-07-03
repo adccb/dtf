@@ -14,6 +14,9 @@ symlink_locations = {
   "/Users/acrossan/.dtf/init.lua" => "/Users/acrossan/.hammerspoon/init.lua",
   "/Users/acrossan/.dtf/init.vim" => "/Users/acrossan/.config/nvim/init.vim",
   "/Users/acrossan/.dtf/gitignore_global" => "/Users/acrossan/.gitignore_global",
+}
+
+forced_symlink_locations = {
   "/Users/acrossan/.dtf/karabiner.json" => "/Users/acrossan/.config/karabiner/karabiner.json",
 }
 
@@ -42,5 +45,14 @@ symlink_locations.each do |source, target|
     puts "symlinking #{remove_hostname source} to #{remove_hostname target}"
     fu.ln_sf source, target
   end
+end
+
+forced_symlink_locations.each do |source, target|
+  if File.exist? target
+    fu.rm target
+  end
+  
+  puts "symlinking #{remove_hostname source} to #{remove_hostname target}"
+  fu.ln_sf source, target
 end
 
