@@ -18,7 +18,7 @@
                   {
                         "manipulators": [
                             {
-                                "description": "change caps lock to command+control+option.",
+                                "description": "change caps lock to command+control+option when held, tab when tapped",
                                 "from": {
                                     "key_code": "caps_lock",
                                     "modifiers": {
@@ -34,6 +34,11 @@
                                             "left_control",
                                             "left_option"
                                         ]
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "tab"
                                     }
                                 ],
                                 "type": "basic"
