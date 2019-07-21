@@ -23,6 +23,7 @@ function setupWorkLayout()
   hs.application.find("Google Chrome"):mainWindow():moveToUnit'[50,50,100,100]'
   hs.application.find("Slack"):mainWindow():moveToUnit'[0,0,50,50]'
   hs.application.find("Todoist"):mainWindow():moveToUnit'[0,100,50,50]'
+  hs.application.find("Spotify"):mainWindow():moveToUnit'[0,100,50,50]'
 end
 
 -- applications --
@@ -32,7 +33,6 @@ bindKeypressToApplication("r", "Spotify")
 bindKeypressToApplication("s", "Slack")
 bindKeypressToApplication("m", "Messages")
 bindKeypressToApplication("t", "Todoist")
-bindKeypressToApplication("e", "Spark")
 
 -- layout details --
 hs.hotkey.bind(hyper, "k", setupWorkLayout)
