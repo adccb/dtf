@@ -27,16 +27,18 @@ hi Comment gui=italic cterm=italic
 hi Type gui=italic cterm=italic
 hi TabLineFill guibg=darkgrey ctermfg=darkgrey guifg=lightgrey ctermbg=lightgrey
 
-" vim-plug
+" plugin time!
 call plug#begin('~/.local/share/nvim/plugged')
+" nerdtree stuff
 Plug 'scrooloose/nerdtree'
+Plug 'xuyuanp/nerdtree-git-plugin'
+" formatting
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
 Plug 'raimondi/delimitmate'
+" js/ts stuff
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'moll/vim-node'
-Plug 'flowtype/vim-flow'
-Plug 'ElmCast/elm-vim'
 Plug 'leafgarland/typescript-vim'
 call plug#end()
 
@@ -73,7 +75,7 @@ autocmd vimenter * NERDTree
 autocmd FileType nerdtree nnoremap <buffer> s j
 let g:NERDTreeMapOpenSplit = 'q'
 let g:NERDTreeMapOpenVSplit = 'e'
-let g:NERDTreeIgnore = ['pycache']
+let g:NERDTreeIgnore = ['pycache', 'node_modules']
 let g:NERDTreeMinimalUI = 1
 
 " uncomment this line to quit when the only remaining 
@@ -88,9 +90,6 @@ noremap rr dd
 noremap <Leader>w :w<CR>
 noremap <Leader>q :q<CR>
 noremap <Leader>e :NERDTreeToggle<CR>
-
-" flow
-let g:javascript_plugin_flow = 1
 
 " markdown
 au BufRead,BufNewFile *.md,*.markdown,*.txt set wrap linebreak nolist

@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require "fileutils"
 
 fu = ENV["env"] == "go" ? FileUtils : FileUtils::DryRun
