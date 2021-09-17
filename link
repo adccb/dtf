@@ -2,59 +2,61 @@
 
 require "fileutils"
 
+puts Dir.home
+
 fu = ENV["env"] == "go" ? FileUtils : FileUtils::DryRun
 
 dir_locations = [
-  "/Users/acrossan/.hammerspoon/",
-  "/Users/acrossan/.config/",
-  "/Users/acrossan/.config/karabiner/",
-  "/Users/acrossan/.config/nvim/",
+  ".hammerspoon/",
+  ".config/",
+  ".config/karabiner/",
+  ".config/nvim/",
 ]
 
 symlink_locations = {
-  "/Users/acrossan/.dtf/zshrc" => "/Users/acrossan/.zshrc",
-  "/Users/acrossan/.dtf/init.lua" => "/Users/acrossan/.hammerspoon/init.lua",
-  "/Users/acrossan/.dtf/init.vim" => "/Users/acrossan/.config/nvim/init.vim",
-  "/Users/acrossan/.dtf/gitignore_global" => "/Users/acrossan/.gitignore_global",
+  ".dtf/zshrc" => ".zshrc",
+  ".dtf/init.lua" => ".hammerspoon/init.lua",
+  ".dtf/init.vim" => ".config/nvim/init.vim",
+  ".dtf/gitignore_global" => ".gitignore_global",
 }
 
 forced_symlink_locations = {
-  "/Users/acrossan/.dtf/karabiner.json" => "/Users/acrossan/.config/karabiner/karabiner.json",
+  ".dtf/karabiner.json" => ".config/karabiner/karabiner.json",
 }
 
-def remove_hostname (str) str.gsub "/Users/acrossan/", "" end
+def realpath (path) "#{Dir.home}/#{path}" end
 
 if ENV["env"] != "go"
   puts "NOTE: this run didn't do anything. if you want to\nactually change your system, run the following command:"
-  puts "\n\s\s\s\s$ env=go ruby link.rb\n\n\n"
+  puts "\n\s\s\s\s$ env=go ./link\n\n\n"
 end
 
 puts "creating directories...\n\n"
 dir_locations.each do |dirname|
   if Dir.exist? dirname
-    puts "#{remove_hostname dirname} exists, skipping..."
+    puts "#{dirname} exists, skipping..."
   else
-    puts "creating #{remove_hostname dirname}..."
-    fu.mkdir_p dirname
+    puts "creating #{dirname}..."
+    fu.mkdir_p realpath(dirname)
   end
 end
 
 puts "\ncreating symlinks...\n\n"
 symlink_locations.each do |source, target|
   if File.exist? target
-    puts "#{remove_hostname target} is already symlinked, skipping..."
+    puts "#{target} is already symlinked, skipping..."
   else
-    puts "symlinking #{remove_hostname source} to #{remove_hostname target}"
-    fu.ln_sf source, target
+    puts "symlinking #{source} to #{target}"
+    fu.ln_sf realpath(source), realpath(target)
   end
 end
 
 forced_symlink_locations.each do |source, target|
-  if File.exist? target
-    fu.rm target
+  if File.exist? realpath(target)
+    fu.rm realpath(target)
   end
   
-  puts "symlinking #{remove_hostname source} to #{remove_hostname target}"
-  fu.ln_sf source, target
+  puts "symlinking #{source} to #{target}"
+  fu.ln_sf realpath(source), realpath(target)
 end
 
