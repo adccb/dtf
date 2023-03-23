@@ -1,34 +1,11 @@
 local hyper = { "shift", "alt", "ctrl", "cmd" }
 local meh =  { "alt", "ctrl", "cmd" }
 
-local HEAD_DOWN = false
-
--- utility functions --
-function iff(condition, if_true, if_false)
-  if condition then return if_true else return if_false end
-end
-
-function bindKeypressToApplication(key, appName)
-  hs.hotkey.bind(hyper, key, function() 
-    hs.application.launchOrFocus(appName)
-  end)
-end
-
-function remapKey(pressed, target, mods)
-  mods_ = mods or nil
-
-  hs.hotkey.bind(meh, pressed, function()
-    hs.eventtap.keyStroke(mods_, target)
-  end)
-end
-
--- applications --
 APP_MAP = {
   c="Google Chrome",
+  b="Bear",
   d="iTerm",
   e="Discord",
-  j="jira",
-  l="calendar",
   p="signal",
   r="Spotify",
   s="Slack",
@@ -38,25 +15,21 @@ APP_MAP = {
   o="Obsidian"
 }
 
-HEAD_DOWN_MAP = {
-  c="Google Chrome",
-  d="iTerm",
-  j="jira",
-}
-
-ACTIVE_MAP = iff(HEAD_DOWN, HEAD_DOWN_MAP, APP_MAP)
-for key, application in pairs(ACTIVE_MAP) do
-  bindKeypressToApplication(key, application)
+for key, application in pairs(APP_MAP) do
+  hs.hotkey.bind(hyper, key, function() 
+    hs.application.launchOrFocus(application)
+  end)
 end
 
--- key remappings --
-remapKey("w", "Up")
-remapKey("a", "Left")
-remapKey("s", "Down")
-remapKey("d", "Right")
-remapKey("r", "pageup")
-remapKey("f", "pagedown")
+KEY_MAP = {
+  w="Up",
+  a="Left",
+  s="Down",
+  d="Right",
+}
 
--- auto-reload
-hs.pathwatcher.new("~/.hammerspoon/init.lua", hs.reload):start()
-hs.notify.new({ title="hammerspoon", informativeText="config reloaded" }):send()
+for pressed, target in pairs(KEY_MAP) do
+  hs.hotkey.bind(meh, pressed, function()
+    hs.eventtap.keyStroke(nil, target)
+  end)
+end
