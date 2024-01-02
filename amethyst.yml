@@ -1,0 +1,5 @@
+layouts:
+  - tall
+  - wide
+window-margins: true
+window-margin-size: 20

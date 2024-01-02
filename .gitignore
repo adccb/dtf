@@ -1,0 +1,8 @@
+*.swp
+*.swo
+*~
+vim/plugged
+package.json
+package-lock.json
+node_modules/
+

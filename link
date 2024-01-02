@@ -1,0 +1,63 @@
+#!/usr/bin/env ruby
+
+require "fileutils"
+
+puts Dir.home
+
+fu = ENV["env"] == "go" ? FileUtils : FileUtils::DryRun
+
+dir_locations = [
+  ".hammerspoon/",
+  ".config/",
+  ".config/karabiner/",
+  ".config/nvim/",
+]
+
+symlink_locations = {
+  ".dtf/zshrc" => ".zshrc",
+  ".dtf/init.lua" => ".hammerspoon/init.lua",
+  ".dtf/init.vim" => ".config/nvim/init.vim",
+  ".dtf/gitignore_global" => ".gitignore_global",
+  ".dtf/amethyst.yml" => ".amethyst.yml"
+}
+
+forced_symlink_locations = {
+  ".dtf/karabiner.json" => ".config/karabiner/karabiner.json",
+}
+
+def realpath (path) "#{Dir.home}/#{path}" end
+
+if ENV["env"] != "go"
+  puts "NOTE: this run didn't do anything. if you want to\nactually change your system, run the following command:"
+  puts "\n\s\s\s\s$ env=go ./link\n\n\n"
+end
+
+puts "creating directories...\n\n"
+dir_locations.each do |dirname|
+  if Dir.exist? dirname
+    puts "#{dirname} exists, skipping..."
+  else
+    puts "creating #{dirname}..."
+    fu.mkdir_p realpath(dirname)
+  end
+end
+
+puts "\ncreating symlinks...\n\n"
+symlink_locations.each do |source, target|
+  if File.exist? target
+    puts "#{target} is already symlinked, skipping..."
+  else
+    puts "symlinking #{source} to #{target}"
+    fu.ln_sf realpath(source), realpath(target)
+  end
+end
+
+forced_symlink_locations.each do |source, target|
+  if File.exist? realpath(target)
+    fu.rm realpath(target)
+  end
+  
+  puts "symlinking #{source} to #{target}"
+  fu.ln_sf realpath(source), realpath(target)
+end
+
