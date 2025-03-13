@@ -2,17 +2,16 @@ local hyper = { "shift", "alt", "ctrl", "cmd" }
 local meh =  { "alt", "ctrl", "cmd" }
 
 APP_MAP = {
-  c="Google Chrome",
-  b="Bear",
+  f="Firefox",
   d="iTerm",
   e="Discord",
   p="signal",
   r="Spotify",
-  s="Slack",
   z="zoom.us",
   t="todoist",
   m="Messages",
-  o="Obsidian"
+  o="Obsidian",
+  s="Slack",
 }
 
 for key, application in pairs(APP_MAP) do
