@@ -1,4 +1,4 @@
-prompt_char='→'
+prompt_char='►'
 
 upfind () {
   while [[ $PWD != $HOME ]] ; do
@@ -21,13 +21,13 @@ _branch () {
   fi
 }
 
-_exit () { echo "$?" }
-_cwd ()  { echo "%B%F{green}$(pwd | awk -F/ '{print $(NF-1)"/"$(NF)}')%f%b" }
+_exit () { echo "%B%F{yellow}$?%f%b"}
+_cwd  () { echo "%B%F{green}$(pwd | awk -F/ '{print $(NF-1)"/"$(NF)}')%f%b" }
 _node () { echo "%B%F{yellow}$(node -v)%f%b"}
+_ruby () { echo "%B%F{red}$(ruby --version | awk -F "[ ]+" '{print $2}')%f%b"}
 
 set_prompt () {
-  PROMPT="$(_branch) | $(_cwd) %B$prompt_char%b "
-  RPROMPT="📦 $(_node)"
+  PROMPT=$'\n'"┌ $(_cwd) | $(_branch) | $(_exit) "$'\n'"└ %B$prompt_char%b "
 }
 
 precmd () { set_prompt $? }
@@ -35,7 +35,4 @@ precmd () { set_prompt $? }
 chpwd () {
   nvm_exists=$(upfind ".nvmrc")
   if [ ! -z "$nvm_exists" ]; then nvm use; fi
-
-  venv=$(upfind "venv")
-  if [ ! -z "$venv" ]; then source "$venv/bin/activate"; fi
 }

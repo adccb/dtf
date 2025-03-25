@@ -59,4 +59,3 @@ forced_symlink_locations.each do |source, target|
   puts "symlinking #{source} to #{target}"
   fu.ln_sf realpath(source), realpath(target)
 end
-

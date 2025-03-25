@@ -9,10 +9,17 @@ vim.call('plug#begin', '~/.local/share/nvim/plugged')
   Plug('pseewald/vim-anyfold')
   Plug('tpope/vim-markdown')
   Plug('catppuccin/nvim', { ['as'] = 'catppuccin' })
+  Plug('junegunn/fzf', { ['dir'] = '~/.fzf', ['do'] = './install --all' })
+  Plug('junegunn/fzf.vim')
+  Plug('tpope/vim-dispatch')
+  Plug('tpope/vim-rails')
+  Plug('nvim-lualine/lualine.nvim')
+  Plug('nvim-treesitter/nvim-treesitter')
 vim.call('plug#end')
 
 -- Appearance
 vim.g.markdown_fenced_languages = { 'html', 'python', 'ruby', 'vim' }
+vim.opt.fillchars = {eob = " "}
 
 vim.api.nvim_set_option_value("syntax", "on", {})
 vim.api.nvim_set_option_value("autoindent", true, {})
@@ -53,10 +60,11 @@ vim.keymap.set(nv, "s", "gj")
 vim.keymap.set(nv, "d", "l")
 
 vim.keymap.set(nv, "=", "<C-W>=<CR>")
-vim.keymap.set(nv, "<Up>", "<C-W><C-K>")
-vim.keymap.set(nv, "<Left>", "<C-W><C-H>")
-vim.keymap.set(nv, "<Down>", "<C-W><C-J>")
-vim.keymap.set(nv, "<Right>", "<C-W><C-L>")
+vim.keymap.set(nv, "W", "<C-W><C-K>")
+vim.keymap.set(nv, "A", "<C-W><C-H>")
+vim.keymap.set(nv, "S", "<C-W><C-J>")
+vim.keymap.set(nv, "D", "<C-W><C-L>")
+
 vim.keymap.set(nv, "<Leader>g", ":Goyo<CR>")
 
 -- Editor functionality --
@@ -68,15 +76,42 @@ vim.api.nvim_set_option_value("splitright", true, {})
 vim.keymap.set(nv, "\\", ":noh<CR>") 
 vim.keymap.set(nv, "<Leader>w", ":w<CR>")
 vim.keymap.set(nv, "<Leader>q", ":q<CR>")
+vim.keymap.set(nv, "<Leader>f", ":Files<CR>")
+
+-- vim-rails --
+vim.keymap.set(nv, "<Leader>gm", ":Emodel<CR>")
+vim.keymap.set(nv, "<Leader>gc", ":Econtroller<CR>")
+
 vim.keymap.set(nv, "r", "d")
 vim.keymap.set(nv, "rr", "dd")
 
 vim.keymap.set(nv, "<Leader>cl", ":colorscheme catppuccin-latte<CR>")
 vim.keymap.set(nv, "<Leader>cd", ":colorscheme catppuccin-mocha<CR>")
 
-vim.keymap.set(nv, "<Leader>e", ":NvimTreeToggle<CR>")
+vim.keymap.set(nv, "<Leader>t", ":NvimTreeToggle<CR>")
 
 require("nvim-tree").setup({
+  renderer = {
+    icons = {
+      show = {
+        file = false,
+        folder = true,
+        git = false,
+        folder_arrow = false,
+      },
+      glyphs = {
+        default = "",
+        symlink = "",
+        folder = {
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = "",
+        }
+      }
+    }
+  },
   on_attach = function ()
     local api = require "nvim-tree.api"
 
@@ -88,4 +123,41 @@ require("nvim-tree").setup({
     vim.keymap.set("n", "t", api.node.open.tab)
   end,
 })
+
+require('lualine').setup {
+  options = {
+    theme = 'catppuccin-mocha',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = { statusline = {"NvimTree"} },
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {
+      {
+        'branch',
+        icons_enabled = false
+      },
+    },
+    lualine_c = {'filename' },
+    lualine_x = {'filetype'},
+    lualine_y = {'diff'},
+    lualine_z = {'location'}
+  },
+}
+
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "lua", "vim", "ruby" },
+  auto_install = false,
+  highlight = {
+    enable = true,
+    disable = function(lang, buf)
+        local max_filesize = 100 * 1024 -- 100 KB
+        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+        if ok and stats and stats.size > max_filesize then
+            return true
+        end
+    end,
+  },
+}
 EOF
